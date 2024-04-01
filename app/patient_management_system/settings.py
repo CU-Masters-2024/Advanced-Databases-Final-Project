@@ -75,9 +75,16 @@ WSGI_APPLICATION = 'patient_management_system.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+         'ENGINE': 'django.db.backends.mysql',
+         'OPTIONS': {
+             'sql_mode': 'traditional',
+         },
+         'NAME': 'railway',
+         'USER': 'root',
+         'PASSWORD': 'ecXNepLVTfWnArElPxLfGmWSnDJPVMRV',
+         'HOST': 'roundhouse.proxy.rlwy.net',
+         'PORT': '42145', 
+     }
 }
 
 
