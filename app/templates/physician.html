@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+
+{% load custom_templates %}
+
+{% block title %} Patient Management System | Patient {% endblock title %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-6">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    
+                    <div class="form-group">
+                        {% for field in form %}
+                            <div class="mb-3"> <!-- Adds bottom margin to space out each form group -->
+                                <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                                {% if field.help_text %}
+                                    <small class="form-text text-muted">{{ field.help_text }}</small>
+                                {% endif %}
+                                {{ field.errors }}
+                                {{ field|add_class:"form-control" }} <!-- Adds the Bootstrap form-control class -->
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="text-center"> <!-- Center the button -->
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

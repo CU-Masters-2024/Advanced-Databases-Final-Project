@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+
+{% load custom_templates %}
+
+{% block title %} Patient Management System | Treatment {% endblock title %}
+
+{% block content %}
+
+
+<div class="jumbotron">
+    <div class="container text-center">
+        <div class="">
+            <h6>Sample Patient Data</h6>
+                <p>FirstName, LastName , Age , Gender</p>
+                <p>David, Soto, 22, Male</p>
+                <p>Cody, Bishop, 77, Male</p>
+                <p>Russell, Williams , 82 , Male</p>
+                <p>Jennifer, Anderson, 17, Female</p>
+                <p>Teresa, Garcia, 97, Female</p>
+        </div>
+
+        <div class="p-2">
+            <h6>Sample Physician Data</h6>
+                <p>FirstName, LastName , Specialty</p>
+                <p>William, Davis, Cardiologist</p>
+                <p>Catherine, Bauer, Dermatologist</p>
+                <p>William, Reynolds, Neurologist</p>
+                <p>William, Castillo, General Practitioner</p>
+                <p>Christina, Lynch, Pediatrician</p>
+        </div>
+
+
+        <div class="">
+            <h6>Sample Medical Profile Data</h6>
+                <p>Diagnosis, CurrentMedication , Medical Imaging</p>
+                <p>Arthritis, Omeprazole, CT Scan</p>
+                <p>Anxiety Disorder, Losartan, MRI</p>
+                <p>Chronic Obstructive Pulmonary Disease, Tiotropium, X-ray</p>
+                <p>Anxiety Disorder, Sumatriptan, X-ray</p>
+                <p>Chronic Kidney Disease, Escitalopram, X-ray</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+{% endblock content %}
