@@ -1,0 +1,21 @@
+PhysicianID,FirstName,LastName,Specialty
+1,Marcus,Velazquez,Dermatologist
+2,William,Davis,Cardiologist
+3,Stephanie,Thompson,Neurologist
+4,Lisa,Kirk,Neurologist
+5,Jennifer,Phillips,General Practitioner
+6,Christina,Lynch,Pediatrician
+7,Alexander,Tran,Neurologist
+8,Tracy,Golden,Pediatrician
+9,Andrew,Richard,Neurologist
+10,Jasmine,Blevins,Dermatologist
+11,Catherine,Bauer,Dermatologist
+12,Jean,Warren,General Practitioner
+13,Deanna,Harvey,Cardiologist
+14,Maxwell,Coleman,Neurologist
+15,Judith,King,Neurologist
+16,Christine,Richmond,General Practitioner
+17,Amber,Smith,Neurologist
+18,William,Reynolds,Neurologist
+19,Cynthia,Singleton,Dermatologist
+20,William,Castillo,General Practitioner

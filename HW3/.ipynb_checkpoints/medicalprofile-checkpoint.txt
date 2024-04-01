@@ -1,0 +1,91 @@
+ProfileID,Diagnosis,CurrentMedication,MedicalImages
+1,Anxiety Disorder,Escitalopram,CT Scan
+2,Asthma,Escitalopram,Ultrasound
+3,Arthritis,Escitalopram,X-ray
+4,Hypertension,Escitalopram,CT Scan
+5,Arthritis,Omeprazole,Echocardiogram
+6,Diabetes Mellitus,Metformin,Echocardiogram
+7,Asthma,Sumatriptan,X-ray
+8,Asthma,Losartan,X-ray
+9,Chronic Obstructive Pulmonary Disease,Escitalopram,CT Scan
+10,Peptic Ulcer Disease,Ibuprofen,Echocardiogram
+11,Diabetes Mellitus,Escitalopram,MRI
+12,Hypertension,Sumatriptan,Ultrasound
+13,Hypertension,Omeprazole,Echocardiogram
+14,Chronic Kidney Disease,Amlodipine,Echocardiogram
+15,Hypertension,Metformin,X-ray
+16,Depression,Amlodipine,Ultrasound
+17,Hypertension,Losartan,Echocardiogram
+18,Migraine,Sumatriptan,CT Scan
+19,Arthritis,Losartan,Echocardiogram
+20,Depression,Salbutamol,Ultrasound
+21,Migraine,Sertraline,Echocardiogram
+22,Chronic Obstructive Pulmonary Disease,Ibuprofen,CT Scan
+23,Chronic Obstructive Pulmonary Disease,Tiotropium,Echocardiogram
+24,Peptic Ulcer Disease,Ibuprofen,Ultrasound
+25,Hypertension,Omeprazole,X-ray
+26,Chronic Obstructive Pulmonary Disease,Sumatriptan,X-ray
+27,Anxiety Disorder,Sertraline,CT Scan
+28,Anxiety Disorder,Sumatriptan,Echocardiogram
+29,Chronic Obstructive Pulmonary Disease,Omeprazole,Ultrasound
+30,Chronic Kidney Disease,Sumatriptan,X-ray
+31,Depression,Sertraline,X-ray
+32,Asthma,Sumatriptan,MRI
+33,Depression,Amlodipine,CT Scan
+34,Diabetes Mellitus,Metformin,Echocardiogram
+35,Migraine,Sumatriptan,Echocardiogram
+36,Hypertension,Metformin,Echocardiogram
+37,Diabetes Mellitus,Salbutamol,MRI
+38,Chronic Kidney Disease,Omeprazole,CT Scan
+39,Anxiety Disorder,Ibuprofen,Echocardiogram
+40,Hypertension,Amlodipine,Ultrasound
+41,Hypertension,Amlodipine,CT Scan
+42,Migraine,Losartan,MRI
+43,Peptic Ulcer Disease,Salbutamol,Ultrasound
+44,Peptic Ulcer Disease,Omeprazole,MRI
+45,Chronic Kidney Disease,Tiotropium,X-ray
+46,Depression,Tiotropium,CT Scan
+47,Hypertension,Salbutamol,Echocardiogram
+48,Migraine,Losartan,MRI
+49,Migraine,Losartan,MRI
+50,Anxiety Disorder,Ibuprofen,CT Scan
+51,Chronic Obstructive Pulmonary Disease,Salbutamol,MRI
+52,Chronic Kidney Disease,Escitalopram,Echocardiogram
+53,Arthritis,Ibuprofen,Echocardiogram
+54,Peptic Ulcer Disease,Tiotropium,CT Scan
+55,Hypertension,Ibuprofen,X-ray
+56,Chronic Obstructive Pulmonary Disease,Omeprazole,MRI
+57,Arthritis,Escitalopram,Echocardiogram
+58,Diabetes Mellitus,Omeprazole,MRI
+59,Migraine,Tiotropium,X-ray
+60,Peptic Ulcer Disease,Amlodipine,CT Scan
+61,Arthritis,Ibuprofen,MRI
+62,Depression,Salbutamol,Echocardiogram
+63,Asthma,Losartan,MRI
+64,Peptic Ulcer Disease,Metformin,MRI
+65,Arthritis,Escitalopram,Echocardiogram
+66,Diabetes Mellitus,Salbutamol,X-ray
+67,Peptic Ulcer Disease,Metformin,CT Scan
+68,Depression,Metformin,X-ray
+69,Chronic Kidney Disease,Tiotropium,MRI
+70,Migraine,Losartan,CT Scan
+71,Hypertension,Losartan,X-ray
+72,Arthritis,Losartan,CT Scan
+73,Asthma,Ibuprofen,Ultrasound
+74,Diabetes Mellitus,Metformin,Ultrasound
+75,Chronic Obstructive Pulmonary Disease,Escitalopram,X-ray
+76,Chronic Obstructive Pulmonary Disease,Escitalopram,X-ray
+77,Chronic Kidney Disease,Sertraline,Ultrasound
+78,Peptic Ulcer Disease,Omeprazole,MRI
+79,Arthritis,Ibuprofen,Echocardiogram
+80,Diabetes Mellitus,Sertraline,X-ray
+81,Arthritis,Sertraline,Ultrasound
+82,Diabetes Mellitus,Amlodipine,Ultrasound
+83,Asthma,Tiotropium,MRI
+84,Diabetes Mellitus,Omeprazole,CT Scan
+85,Depression,Sertraline,MRI
+86,Chronic Obstructive Pulmonary Disease,Sertraline,CT Scan
+87,Hypertension,Omeprazole,CT Scan
+88,Chronic Kidney Disease,Amlodipine,MRI
+89,Diabetes Mellitus,Sumatriptan,MRI
+90,Depression,Sertraline,X-ray

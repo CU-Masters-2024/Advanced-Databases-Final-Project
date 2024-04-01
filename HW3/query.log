@@ -1,0 +1,135 @@
+*************************** 1. row ***************************
+  event_time: 2024-03-19 20:17:30.192446
+   user_host: sifael[sifael] @ localhost []
+   thread_id: 65
+   server_id: 1
+command_type: Query
+    argument: SELECT * FROM mysql.general_log
+*************************** 2. row ***************************
+  event_time: 2024-03-19 20:18:33.443815
+   user_host: sifael[sifael] @ localhost []
+   thread_id: 65
+   server_id: 1
+command_type: Query
+    argument: SELECT 
+    p.PatientID, 
+    p.FirstName, 
+    p.LastName, 
+    p.Age, 
+    p.Gender,
+    mp.Diagnosis,
+    mp.CurrentMedication,
+    mp.MedicalImages
+FROM 
+    Patient p
+JOIN 
+    MedicalProfile mp ON p.PatientID = mp.ProfileID
+WHERE 
+    mp.Diagnosis IN ('Anxiety Disorder', 'Depression')
+*************************** 3. row ***************************
+  event_time: 2024-03-19 20:18:44.758206
+   user_host: sifael[sifael] @ localhost []
+   thread_id: 65
+   server_id: 1
+command_type: Query
+    argument: SELECT 
+    mp.Diagnosis,
+    p.Gender,
+    COUNT(*) AS NumberOfPatients
+FROM 
+    MedicalProfile mp
+JOIN 
+    Patient p ON mp.ProfileID = p.PatientID
+GROUP BY 
+    mp.Diagnosis, p.Gender
+ORDER BY 
+    mp.Diagnosis, p.Gender
+*************************** 4. row ***************************
+  event_time: 2024-03-19 20:18:53.829680
+   user_host: sifael[sifael] @ localhost []
+   thread_id: 65
+   server_id: 1
+command_type: Query
+    argument: SELECT 
+    p.Gender,
+    MIN(p.Age) AS MinAge,
+    MAX(p.Age) AS MaxAge
+FROM 
+    Patient p
+JOIN 
+    MedicalProfile mp ON p.PatientID = mp.ProfileID
+WHERE 
+    mp.Diagnosis = 'Migraine'
+GROUP BY 
+    p.Gender
+*************************** 5. row ***************************
+  event_time: 2024-03-19 20:19:04.943937
+   user_host: sifael[sifael] @ localhost []
+   thread_id: 65
+   server_id: 1
+command_type: Query
+    argument: SELECT DISTINCT
+    ph.PhysicianID,
+    ph.FirstName,
+    ph.LastName,
+    ph.Specialty
+FROM 
+    Physician ph
+JOIN 
+    Treatment tr ON ph.PhysicianID = tr.PhysicianID
+JOIN 
+    MedicalProfile mp ON tr.PatientID = mp.ProfileID
+WHERE 
+    mp.MedicalImages = 'X-ray'
+    OR mp.MedicalImages = 'MRI'
+ORDER BY 
+    ph.PhysicianID
+*************************** 6. row ***************************
+  event_time: 2024-03-19 20:19:14.239909
+   user_host: sifael[sifael] @ localhost []
+   thread_id: 65
+   server_id: 1
+command_type: Query
+    argument: SELECT DISTINCT
+    ph.PhysicianID,
+    ph.FirstName AS PhysicianFirstName,
+    ph.LastName AS PhysicianLastName,
+    ph.Specialty,
+    mp.ProfileID AS PatientID,  
+    mp.Diagnosis
+FROM 
+    Physician ph
+JOIN 
+    Treatment tr ON ph.PhysicianID = tr.PhysicianID
+JOIN 
+    MedicalProfile mp ON tr.PatientID = mp.ProfileID
+WHERE 
+    mp.MedicalImages = 'X-ray'
+    OR mp.MedicalImages = 'MRI'
+ORDER BY 
+    ph.PhysicianID, mp.ProfileID
+*************************** 7. row ***************************
+  event_time: 2024-03-19 20:19:24.878559
+   user_host: sifael[sifael] @ localhost []
+   thread_id: 65
+   server_id: 1
+command_type: Query
+    argument: SELECT 
+    p.Specialty,
+    COUNT(DISTINCT t.PatientID) AS NumberOfPatients
+FROM 
+    Physician p
+JOIN 
+    Treatment t ON p.PhysicianID = t.PhysicianID
+GROUP BY 
+    p.Specialty
+HAVING 
+    COUNT(DISTINCT t.PatientID) > 10
+*************************** 8. row ***************************
+  event_time: 2024-03-19 20:19:45.689462
+   user_host: sifael[sifael] @ localhost []
+   thread_id: 65
+   server_id: 1
+command_type: Query
+    argument: SELECT * FROM mysql.general_log
+8 rows in set (0.01 sec)
