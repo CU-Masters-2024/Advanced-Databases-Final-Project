@@ -1,0 +1,74 @@
+{% extends 'search-data-home.html' %}
+
+{% load custom_templates %}
+
+{% block title %} Patient Search | Patient Management System {% endblock title %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-6">
+                <br>
+                <h5 class="text-center" >Search Patients</h5>
+                <form method="get" action="{% url 'search-patients' %}">
+                    <!-- Ensure this URL name matches your urls.py -->
+                    <div class="form-group text-center">
+                        <input class="mb-3" type="text" name="first_name" placeholder="First Name" value="{{ first_name_query }}">
+                        <input class="mb-3"  type="text" name="last_name" placeholder="Last Name" value="{{ last_name_query }}">
+                        <select class="mb-3" name="gender">
+                            <option value="">Select Gender</option>
+                            <option value="Male" {% if gender_query == "Male" %} selected {% endif %}>Male</option>
+                            <option value="Female" {% if gender_query == "Female" %} selected {% endif %}>Female</option>
+                        </select>
+                    </div>
+                    <div class="text-center"> <!-- Center the button -->
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- RESULTS -->
+<div class="d-flex justify-content-center" style="padding-top: 30px;">
+    {% if search_performed %}
+    {% if patients %}
+        <ul class="list-group" >
+        {% for patient in patients %}
+        <li>{{ patient.first_name }} {{ patient.last_name }} - Age: {{ patient.age }} - Gender: {{ patient.gender }}
+        </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+    <p class="text-center" style="padding-top: 50px;" >No results found.</p>
+    {% endif %}
+    {% endif %}
+</div>
+
+
+
+<br><br>
+<div class="alert alert-primary" role="alert" style="padding-top: 50px;">
+    <h4>Important Notice!</h4>
+    <p>
+        This website is student lab work and does not necessarily reflect Constructor University opinions.
+        Jacobs University Bremen does not endorse this site, nor is it checked by Constructor University
+        regularly, nor is it part of the official Constructor University web presence.
+    </p>
+
+    <p>For each external link existing on this website, we initially have checked that the target page
+        does not contain contents which is illegal wrt. German jurisdiction. However, as we have no in-
+        fluence on such contents, this may change without our notice. Therefore we deny any responsib-
+        ility for the websites referenced through our external links from here.
+    </p>
+
+    <p>
+        No information conflicting with GDPR is stored in the server.
+    </p>
+</div>
+
+{% endblock content %}

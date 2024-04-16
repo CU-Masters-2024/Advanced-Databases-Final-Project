@@ -1,0 +1,65 @@
+{% extends 'search-data-home.html' %}
+
+{% load custom_templates %}
+
+{% block title %} Physician Patient Search Search | Patient Management System {% endblock title %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-6">
+                <br>
+                <h5 class="text-center">Search Treatments</h5>
+                <form method="get" action="{% url 'search-treatment' %}">
+                    <div class="form-group text-center">
+                        <input class="mb-4" type="text" name="patient" placeholder="Patient Name" value="{{ request.GET.patient }}">
+                        <input class="mb-4" type="text" name="physician" placeholder="Physician Name" value="{{ request.GET.physician }}">
+                    </div>
+                    <div class="text-center"> <!-- Center the button -->
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="d-flex justify-content-center" style="padding-top: 30px;">
+{% if treatments %}
+<ul>
+    {% for treatment in treatments %}
+    <li>Treatment: {{ treatment.patient }} - {{ treatment.physician }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No results found.</p>
+{% endif %}
+</div>
+
+
+
+<br><br><br><br><br><br><br><br>
+<div class="alert alert-primary" role="alert" style="padding-top: 50px;">
+    <h4>Important Notice!</h4>
+    <p>
+        This website is student lab work and does not necessarily reflect Constructor University opinions.
+        Jacobs University Bremen does not endorse this site, nor is it checked by Constructor University
+        regularly, nor is it part of the official Constructor University web presence.
+    </p>
+
+    <p>For each external link existing on this website, we initially have checked that the target page
+        does not contain contents which is illegal wrt. German jurisdiction. However, as we have no in-
+        fluence on such contents, this may change without our notice. Therefore we deny any responsib-
+        ility for the websites referenced through our external links from here.
+    </p>
+
+    <p>
+        No information conflicting with GDPR is stored in the server.
+    </p>
+</div>
+
+
+{% endblock %}

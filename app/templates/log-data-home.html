@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% load custom_templates %}
+
+
+{% block section %}
+
+<!-- Navigation links -->
+<div class="nav-container mb-4">
+    <a class="nav-link nav-item" href="{% url 'patient' %}">Patient</a>
+    <a class="nav-link nav-item" href="{% url 'physician' %}">Physician</a>
+    <a class="nav-link nav-item" href="{% url 'medical-profile' %}">Medical Profile</a>
+    <a class="nav-link nav-item" href="{% url 'treatment' %}">Treatment</a>
+    <a class="nav-link nav-item" href="{% url 'sample-data' %}">Data Sample</a>
+</div>
+
+<div class="container">
+{% block content %}
+
+{% endblock content %}
+</div>
+
+{% endblock section %}
