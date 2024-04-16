@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+{% block section %}
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row justify-content-md-center">
+
+            <div class="col col-lg-6 text-center">
+                <h5 class="mt-5 mb-3">Login</h5>
+                <p>Log Data requires Administrative Priviledges. Please Log In</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{ form.as_p }}
+                        <div>
+                            <button type="submit">Login</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock section %}

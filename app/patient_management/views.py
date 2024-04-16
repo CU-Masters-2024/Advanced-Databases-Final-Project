@@ -1,9 +1,14 @@
 from typing import Any
 from django.db.models.query import QuerySet
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, FormView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
+from django.contrib.auth import authenticate, login
 
+from .forms import LoginForm
 from .models import Patient, Physician, Treatment, MedicalProfile
 # Create your views here.
 
@@ -14,37 +19,46 @@ search = 'search/'
 class HomeView(TemplateView):
     template_name = 'home.html' 
 
-class PatientView(CreateView):
+
+class LogInView(FormView):
+
+    form_class = LoginForm
+    template_name = 'login.html'
+    success_url = reverse_lazy('patient')
+
+    def form_valid(self, form):
+        username = form.cleaned_data['username']
+        password = form.cleaned_data['password']
+        user = authenticate(self.request, username=username, password=password)
+        if user is not None:
+            login(self.request, user)
+            return redirect(self.get_success_url())
+        else:
+            form.add_error(None, "Your username and password didn't match. Please try again.")
+            return self.form_invalid(form)
+        
+
+class PatientView(LoginRequiredMixin, CreateView):
     model = Patient
     fields = '__all__'
     template_name = f'{log_data}patients.html'
     success_url = '/success/'
 
-    # def get(self, request):
-    #     form = Patient
-    #     return render(request, self.template_name, context={'form' : form} ) 
-
-    # def post(self, request):
-    #     form = Patient(request.POST)
-    #     if form.is_valid():
-    #         print(form)
-
-
-class PhysicianView(CreateView):
+class PhysicianView(LoginRequiredMixin, CreateView):
     model  = Physician
     fields = '__all__'
     template_name = f'{log_data}physician.html'
     success_url = '/success/'
 
 
-class MedicalProfileView(CreateView):
+class MedicalProfileView(LoginRequiredMixin, CreateView):
     model  = MedicalProfile
     fields = '__all__'
     template_name = f'{log_data}medical-profile.html'
     success_url = '/success/'
 
 
-class TreatmentView(CreateView):
+class TreatmentView(LoginRequiredMixin, CreateView):
     model  = Treatment
     fields = '__all__'
     template_name = f'{log_data}treatment.html'
