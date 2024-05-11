@@ -7,19 +7,47 @@ from django.views.generic.edit import CreateView, FormView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.contrib.auth import authenticate, login
+import requests
 
 from .forms import LoginForm
 from .models import Patient, Physician, Treatment, MedicalProfile
-# Create your views here.
 
 log_data = 'log_data/'
 search = 'search/'
 
-
+# Create your views here
 class HomeView(TemplateView):
     template_name = 'home.html' 
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user_ip = self.get_client_ip()
+        latitude, longitude = self.get_coordinates(user_ip)
+        context['latitude'] = latitude
+        context['longitude'] = longitude
+        context['ip_address'] = user_ip
+        return context
 
+    def get_client_ip(self):
+        x_forwarded_for = self.request.META.get('HTTP_X_FORWARDED_FOR')
+        if x_forwarded_for:
+            ip = x_forwarded_for.split(',')[0]
+        else:
+            ip = self.request.META.get('REMOTE_ADDR')
+        return ip
 
+    def get_coordinates(self, ip):
+        access_key = "75dd5ce1fc5906"  # Replace with your IPinfo access token
+        response = requests.get(f'https://ipinfo.io/{ip}/json?token={access_key}')
+        data = response.json()
+        print(data)
+        location = data['loc'].split(',')
+        latitude = location[0]
+        longitude = location[1]
+        return latitude, longitude
+    
+ 
+    
 class LogInView(FormView):
 
     form_class = LoginForm
